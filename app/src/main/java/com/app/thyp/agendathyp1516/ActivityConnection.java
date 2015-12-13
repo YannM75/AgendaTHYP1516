@@ -37,6 +37,7 @@ public class ActivityConnection extends AppCompatActivity {
         edtTxtPWD = (EditText)findViewById(R.id.edTxtPwd);
 
         DataBase db = new DataBase(this);
+        //db.insertUsers("yann","mdp",1);
     }
 
     public class onClickListenerBtnValidation implements View.OnClickListener {
@@ -44,6 +45,9 @@ public class ActivityConnection extends AppCompatActivity {
         public void onClick(View v){
             String pseudo = edtTxtPseudo.getText().toString();
             String pwd = edtTxtPWD.getText().toString();
+
+            Log.i("PSEUDO : ",pseudo);
+            Log.i("PWD : ",pwd);
 
             startActivity(intent);
         }

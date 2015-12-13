@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">AgendaTHYP1516</string>
+    <string name="btnValidConnection">Valdier</string>
+    <string name="btnCancelConnection">Annuler</string>
+    <string name="txtIdentification">Veuillez vous identifier :</string>
+    <string name="title_activity_edtday">EDTDAY</string>
+    <string name="title_activity_edt_week">EdtWeek</string>
+    <string name="title_activity_gestion_edt">GestionEdt</string>
+    <string name="title_activity_select_class_room">SelectClassRoom</string>
+    <string name="title_activity_select_hours">SelectHours</string>
 </resources>
