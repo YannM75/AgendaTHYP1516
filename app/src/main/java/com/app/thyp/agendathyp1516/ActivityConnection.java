@@ -11,6 +11,10 @@ import android.widget.EditText;
 
 import com.app.thyp.agendathyp1516.Activities.ActivityMenu;
 import com.app.thyp.agendathyp1516.bdd.DataBase;
+import com.app.thyp.agendathyp1516.bdd.UserDataSource;
+import com.app.thyp.agendathyp1516.bean.User;
+
+import java.sql.SQLException;
 
 public class ActivityConnection extends AppCompatActivity {
 
@@ -19,6 +23,7 @@ public class ActivityConnection extends AppCompatActivity {
     EditText edtTxtPseudo;
     EditText edtTxtPWD;
     Intent intent;
+    UserDataSource db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +41,24 @@ public class ActivityConnection extends AppCompatActivity {
         edtTxtPseudo = (EditText)findViewById(R.id.edTxtPseudo);
         edtTxtPWD = (EditText)findViewById(R.id.edTxtPwd);
 
-        DataBase db = new DataBase(this);
-        //db.insertUsers("yann","mdp",1);
+        db = new UserDataSource(this);
+
+        User user1 = new User("YannM","azerty159",1);
+        User user2 = new User("thypbast","azerty357",2);
+        User user3 = new User("elyaagoubi","azerty258",1);
+
+        try {
+            db.open();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        db.createUsers(user1);
+        db.createUsers(user2);
+        db.createUsers(user3);
+
+        db.close();
+
+
     }
 
     public class onClickListenerBtnValidation implements View.OnClickListener {
@@ -47,8 +68,17 @@ public class ActivityConnection extends AppCompatActivity {
             String pwd = edtTxtPWD.getText().toString();
 
             Log.i("PSEUDO : ",pseudo);
-            Log.i("PWD : ",pwd);
+            Log.i("PWD : ", pwd);
 
+            if(db != null){
+                try {
+                    db.open();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                //db.getUserWithPseudaAndPWD(pseudo, pwd);
+            }
+            db.close();
             startActivity(intent);
         }
     }
