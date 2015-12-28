@@ -23,7 +23,7 @@ public class ActivityConnection extends AppCompatActivity {
     EditText edtTxtPseudo;
     EditText edtTxtPWD;
     Intent intent;
-    UserDataSource db;
+    UserDataSource dbUsers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,22 +41,22 @@ public class ActivityConnection extends AppCompatActivity {
         edtTxtPseudo = (EditText)findViewById(R.id.edTxtPseudo);
         edtTxtPWD = (EditText)findViewById(R.id.edTxtPwd);
 
-        db = new UserDataSource(this);
+        dbUsers = new UserDataSource(this);
 
         User user1 = new User("YannM","azerty159",1);
         User user2 = new User("thypbast","azerty357",2);
         User user3 = new User("elyaagoubi","azerty258",1);
 
         try {
-            db.open();
+            dbUsers.open();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        db.createUsers(user1);
-        db.createUsers(user2);
-        db.createUsers(user3);
+        dbUsers.createUsers(user1);
+        dbUsers.createUsers(user2);
+        dbUsers.createUsers(user3);
 
-        db.close();
+        dbUsers.close();
 
 
     }
@@ -71,14 +71,14 @@ public class ActivityConnection extends AppCompatActivity {
             Log.i("PSEUDO : ",pseudo);
             Log.i("PWD : ", pwd);
 
-            if(db != null){
+            if(dbUsers != null){
                 try {
-                    db.open();
+                    dbUsers.open();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
                 //db.getUserWithPseudaAndPWD(pseudo, pwd);
-                u = db.getUserByRawQuery(pseudo,pwd);
+                u = dbUsers.getUserByRawQuery(pseudo,pwd);
                 if(!u.equals(null)){
                     Log.e("Pseudo database ", u.getPseudo());
                     Log.e("mdp database", u.getPassWord());
@@ -95,7 +95,7 @@ public class ActivityConnection extends AppCompatActivity {
                 }
 
             }
-            db.close();
+            dbUsers.close();
 
         }
     }

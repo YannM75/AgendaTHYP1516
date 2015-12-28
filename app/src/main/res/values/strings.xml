@@ -8,4 +8,5 @@
     <string name="title_activity_gestion_edt">GestionEdt</string>
     <string name="title_activity_select_class_room">SelectClassRoom</string>
     <string name="title_activity_select_hours">SelectHours</string>
+    <string name="title_List_Room">Liste des Salles de classe</string>
 </resources>

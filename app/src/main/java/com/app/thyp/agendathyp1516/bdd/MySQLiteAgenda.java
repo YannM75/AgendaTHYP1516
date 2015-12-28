@@ -14,7 +14,6 @@ import java.util.logging.Logger;
  * Created by Yann on 23/11/2015.
  */
 public class MySQLiteAgenda extends SQLiteOpenHelper {
-    public final static String DATABASE_NAME = "dbTHYP";
     //Tables
     public final static String TABLE_USERS = "USERS";
     public final static String TABLE_CLASSROOMS = "CLASSROOMS";
@@ -38,7 +37,7 @@ public class MySQLiteAgenda extends SQLiteOpenHelper {
         Log.i("onCreate MySQL : ", "Drop tables");
 
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
-       // db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
 
 
         //Creation de la table
@@ -46,7 +45,7 @@ public class MySQLiteAgenda extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_USER);
 
         Log.i("Request : ",CREATE_TABLE_USER);
-        //db.execSQL(CREATE_TABLE_ROOM);
+        db.execSQL(CREATE_TABLE_ROOM);
 
     }
 

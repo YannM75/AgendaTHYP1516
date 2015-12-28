@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.app.thyp.agendathyp1516.Dictionary;
+import com.app.thyp.agendathyp1516.bean.Room;
 import com.app.thyp.agendathyp1516.bean.User;
 
 import java.sql.SQLException;
@@ -20,15 +22,14 @@ public class UserDataSource {
     // Database fields
     private SQLiteDatabase database;
     private MySQLiteAgenda dbHelper;
+    private Dictionary dico;
 
-    private static final int VERSION_BDD = 1;
-    private static final String NOM_BDD = "edtAppBDD.db";
     private String[] allColumns = { MySQLiteAgenda.CL_ID,
             MySQLiteAgenda.CL_PSEUDO, MySQLiteAgenda.CL_PWD, MySQLiteAgenda.CL_RIGHTS };
 
     public UserDataSource(Context context) {
-
-        dbHelper = new MySQLiteAgenda(context, NOM_BDD,null, VERSION_BDD);
+        dico = new Dictionary();
+        dbHelper = new MySQLiteAgenda(context, dico.NOM_BDD,null, dico.VERSION_BDD);
     }
 
     public void open() throws SQLException {
@@ -51,17 +52,6 @@ public class UserDataSource {
         values.put(MySQLiteAgenda.CL_RIGHTS, user.getGroupe());
         values.put(MySQLiteAgenda.CL_PWD, user.getPassWord());
 
-        long insertPseudo = database.insert(MySQLiteAgenda.TABLE_USERS, null,
-                values);
-
-        Cursor cursor = database.query(MySQLiteAgenda.TABLE_USERS,
-                allColumns, MySQLiteAgenda.CL_PSEUDO + " = " + insertPseudo, null,
-                null, null, null);
-
-        cursor.moveToFirst();
-        User newUser = cursorToUser(cursor);
-        
-        cursor.close();
         return database.insert(MySQLiteAgenda.TABLE_USERS, null, values);
     }
 
@@ -98,7 +88,7 @@ public class UserDataSource {
 
     private User cursorToUser(Cursor cursor) {
 
-        if(cursor.getCount()== 0)return null;
+        if (cursor.getCount() == 0) return null;
 
         cursor.moveToFirst();
 

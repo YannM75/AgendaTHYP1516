@@ -1,11 +1,14 @@
 package com.app.thyp.agendathyp1516.Activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.app.thyp.agendathyp1516.R;
 
 public class ActivityMenu extends AppCompatActivity {
+
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
