@@ -7,10 +7,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 import com.app.thyp.agendathyp1516.Activities.ActivityMenu;
-import com.app.thyp.agendathyp1516.bdd.DataBase;
 import com.app.thyp.agendathyp1516.bdd.UserDataSource;
 import com.app.thyp.agendathyp1516.bean.User;
 
@@ -64,6 +64,7 @@ public class ActivityConnection extends AppCompatActivity {
     public class onClickListenerBtnValidation implements View.OnClickListener {
         @Override
         public void onClick(View v){
+            User u = null;
             String pseudo = edtTxtPseudo.getText().toString();
             String pwd = edtTxtPWD.getText().toString();
 
@@ -77,9 +78,25 @@ public class ActivityConnection extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 //db.getUserWithPseudaAndPWD(pseudo, pwd);
+                u = db.getUserByRawQuery(pseudo,pwd);
+                if(!u.equals(null)){
+                    Log.e("Pseudo database ", u.getPseudo());
+                    Log.e("mdp database", u.getPassWord());
+                    Log.e("groupe user", String.valueOf(u.getGroupe()));
+                    if(pwd.equals(u.getPassWord())){
+                        Log.i("Confirmation ","User reconnu");
+                        startActivity(intent);
+                    }else{
+                        Toast.makeText(getApplicationContext(),"Wrong PassWord", Toast.LENGTH_SHORT).show();
+                    }
+                }else{
+                    Log.e("error user", "user null");
+                    Toast.makeText(getApplicationContext(),"Wrong User", Toast.LENGTH_SHORT).show();
+                }
+
             }
             db.close();
-            startActivity(intent);
+
         }
     }
 }
