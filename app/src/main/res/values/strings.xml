@@ -1,12 +1,24 @@
 <resources>
-    <string name="app_name">AgendaTHYP1516</string>
-    <string name="btnValidConnection">Valdier</string>
+    <string name="app_name">PARIS 8 - Agenda </string>
+    <string name="btnValidConnection">Valider</string>
     <string name="btnCancelConnection">Annuler</string>
-    <string name="txtIdentification">Veuillez vous identifier :</string>
+    <string name="txtAgenda">Connexion Agenda THYP</string>
     <string name="title_activity_edtday">EDTDAY</string>
     <string name="title_activity_edt_week">EdtWeek</string>
     <string name="title_activity_gestion_edt">GestionEdt</string>
     <string name="title_activity_select_class_room">SelectClassRoom</string>
     <string name="title_activity_select_hours">SelectHours</string>
-    <string name="title_List_Room">Liste des Salles de classe</string>
+    <string name="mdp">Mot de passe:</string>
+    <string name="numEtudiant">Identifiant:</string>
+    <string name="buttonDay">buttonDay</string>
+    <string name="title_activity_activity_activity_menu1">activity_activity_menu1</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="EDTjour">Emploi du Temps Jour</string>
+    <string name="EDTsemaine">Emploi Du temps SEMAINE</string>
+    <string name="GestionSalles">Gérer salles</string>
+    <string name="gestionSEMAINE">Gérer emploi du temps</string>
 </resources>

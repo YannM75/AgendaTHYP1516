@@ -7,28 +7,73 @@
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".ActivityConnection">
 
     <TextView
-        android:text="@string/txtIdentification"
+        android:text="@string/txtAgenda"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+
+    <Button
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnValidConnection"
+        android:id="@+id/btnValidCo"
+        android:textStyle="bold"
+        android:layout_marginTop="54dp"
+        android:layout_below="@+id/edTxtPwd"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_toRightOf="@+id/textView3"
+        android:layout_toEndOf="@+id/textView3" />
+
+    <Button
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnCancelConnection"
+        android:id="@+id/btnCancelCo"
+        android:textStyle="bold"
+        android:layout_below="@+id/btnValidCo"
+        android:layout_alignLeft="@+id/btnValidCo"
+        android:layout_alignStart="@+id/btnValidCo"
+        android:layout_alignRight="@+id/btnValidCo"
+        android:layout_alignEnd="@+id/btnValidCo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/mdp"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/edTxtPseudo"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="41dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Identifiant:"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="69dp" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Name"
         android:ems="10"
         android:id="@+id/edTxtPseudo"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/textView3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="80dp"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView" />
+        android:layout_alignParentEnd="true"
+        android:inputType="textPersonName" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -36,36 +81,9 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/edTxtPwd"
-        android:layout_below="@+id/edTxtPseudo"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="39dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btnValidConnection"
-        android:id="@+id/btnValidCo"
-        android:layout_marginLeft="63dp"
-        android:layout_marginStart="63dp"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="112dp" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btnCancelConnection"
-        android:id="@+id/btnCancelCo"
-        android:layout_alignTop="@+id/btnValidCo"
-        android:layout_toRightOf="@+id/btnValidCo"
-        android:layout_toEndOf="@+id/btnValidCo"
-        android:layout_marginLeft="59dp"
-        android:layout_marginStart="59dp" />
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

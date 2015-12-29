@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.app.thyp.agendathyp1516.Dictionary;
-import com.app.thyp.agendathyp1516.bean.Room;
 import com.app.thyp.agendathyp1516.bean.User;
 
 import java.sql.SQLException;

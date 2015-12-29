@@ -79,19 +79,22 @@ public class ActivityConnection extends AppCompatActivity {
                 }
                 //db.getUserWithPseudaAndPWD(pseudo, pwd);
                 u = dbUsers.getUserByRawQuery(pseudo,pwd);
-                if(!u.equals(null)){
+                if(u != null){
                     Log.e("Pseudo database ", u.getPseudo());
                     Log.e("mdp database", u.getPassWord());
                     Log.e("groupe user", String.valueOf(u.getGroupe()));
-                    if(pwd.equals(u.getPassWord())){
-                        Log.i("Confirmation ","User reconnu");
-                        startActivity(intent);
-                    }else{
-                        Toast.makeText(getApplicationContext(),"Wrong PassWord", Toast.LENGTH_SHORT).show();
+                    if(pseudo.equals(u.getPseudo())){
+                        Log.i("Confirmation ", "User reconnu");
+                        if(pwd.equals(u.getPassWord())){
+                            startActivity(intent);
+                        }
+                        else{
+                            Log.e("error mdp", "mdp null");
+                            Toast.makeText(getApplicationContext(),"Mot de passe incorrect !", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }else{
-                    Log.e("error user", "user null");
-                    Toast.makeText(getApplicationContext(),"Wrong User", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Utilisateur non reconnu !", Toast.LENGTH_SHORT).show();
                 }
 
             }

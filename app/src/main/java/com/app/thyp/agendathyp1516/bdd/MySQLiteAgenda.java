@@ -1,13 +1,9 @@
 package com.app.thyp.agendathyp1516.bdd;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
-import java.util.logging.Logger;
 
 
 /**

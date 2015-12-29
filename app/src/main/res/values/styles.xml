@@ -6,6 +6,14 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:dialogTheme">@style/AppTheme.DialogTheme</item>
+
+    </style>
+
+
+    <!-- Styles for pop-up dialogs -->
+    <style name="datePickerTheme" parent="@android:style/Widget.DeviceDefault.DatePicker">
+        <item name="android:divider">@color/colorPrimaryDark</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

@@ -2,7 +2,6 @@ package com.app.thyp.agendathyp1516.bdd;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.app.thyp.agendathyp1516.Dictionary;
