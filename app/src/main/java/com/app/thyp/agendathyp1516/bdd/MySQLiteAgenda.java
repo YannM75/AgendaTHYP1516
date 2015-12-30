@@ -13,12 +13,18 @@ public class MySQLiteAgenda extends SQLiteOpenHelper {
     //Tables
     public final static String TABLE_USERS = "USERS";
     public final static String TABLE_CLASSROOMS = "CLASSROOMS";
-    //Columns
+    public final static String TABLE_CLASS = "CLASS";
+    //Columns table_users
     public final static String CL_PSEUDO= "LOGIN";
     public final static String CL_PWD = "PASSWORD";
     public final static String CL_RIGHTS= "rights";
+    //colums table classroom
     public final static String CL_ID = "ID";
     public final static String CL_NUMBER_ROOM = "CLASSROOM";
+    //colums table_class
+    public final static String CL_NAME_CLASS = "CLASS_NAME";
+    public final static String CL_NAME_TEACHER = "NAME_TEACHER";
+    public final static String CL_DATE = "DATE";
 
     public MySQLiteAgenda(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -27,6 +33,14 @@ public class MySQLiteAgenda extends SQLiteOpenHelper {
 
     private static final String CREATE_TABLE_ROOM="create table " + TABLE_CLASSROOMS + "("+ CL_ID +" integer primary key autoincrement, " + CL_NUMBER_ROOM + " text);";
 
+    //private static final String CREATE_TABLE_CLASS="create table " + TABLE_CLASS + " ("+ CL_ID +" integer primary key autoincrement, " + CL_NAME_TEACHER + " text," + CL_NAME_CLASS + " text," + CL_DATE + " text);";
+
+    private static final String CREATE_TABLE_CLASS =
+            "CREATE TABLE " + TABLE_CLASS + " (" + CL_ID +
+                    " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    CL_NAME_TEACHER + " VARCHAR(250) NOT NULL, " +
+                    CL_NAME_CLASS + " VARCHAR(250) NOT NULL, " +
+                    CL_DATE + " VARCHAR(250) NOT NULL)";
     @Override
     public void onCreate(SQLiteDatabase db) {
         //Supression de la table des users
@@ -34,14 +48,18 @@ public class MySQLiteAgenda extends SQLiteOpenHelper {
 
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CLASS);
 
 
         //Creation de la table
-        Log.i("onCreate MySQL : ","Create tables");
+        Log.i("onCreate MySQL : ", "Create tables");
         db.execSQL(CREATE_TABLE_USER);
 
         Log.i("Request : ",CREATE_TABLE_USER);
         db.execSQL(CREATE_TABLE_ROOM);
+
+        Log.i("onCreate MySQL : ","Create table CLASS");
+        db.execSQL(CREATE_TABLE_CLASS);
 
     }
 
