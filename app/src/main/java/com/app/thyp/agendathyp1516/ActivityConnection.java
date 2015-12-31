@@ -11,7 +11,9 @@ import android.widget.Toast;
 
 import com.app.thyp.agendathyp1516.Activities.ActivityMenuEtudiant;
 import com.app.thyp.agendathyp1516.Activities.ActivityMenuProf;
+import com.app.thyp.agendathyp1516.bdd.CoursDataSource;
 import com.app.thyp.agendathyp1516.bdd.UserDataSource;
+import com.app.thyp.agendathyp1516.bean.Cours;
 import com.app.thyp.agendathyp1516.bean.User;
 
 import java.sql.SQLException;
@@ -26,6 +28,8 @@ public class ActivityConnection extends AppCompatActivity {
     Intent intentProf;
 
     UserDataSource dbUsers;
+    CoursDataSource dbCours;
+    String date = "2015/12/30";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +48,15 @@ public class ActivityConnection extends AppCompatActivity {
         edtTxtPWD = (EditText)findViewById(R.id.edTxtPwd);
 
         dbUsers = new UserDataSource(this);
+        dbCours = new CoursDataSource(this);
 
         User user1 = new User("YannM","azerty159",1);
         User user2 = new User("thypbast","azerty357",2);
         User user3 = new User("elyaagoubi","azerty258",1);
+
+        Cours class1 = new Cours("Android", "Guillaume", date);
+        Cours class2 = new Cours("Gestion de projet", "Khaldoun", date);
+        Cours class3 = new Cours("Technique web", "Nasserdine", date);
 
         try {
             dbUsers.open();
@@ -59,6 +68,17 @@ public class ActivityConnection extends AppCompatActivity {
         dbUsers.createUsers(user3);
 
         dbUsers.close();
+
+        try {
+            dbCours.open();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        dbCours.createClass(class1);
+        dbCours.createClass(class2);
+        dbCours.createClass(class3);
+
+        dbCours.close();
 
 
     }

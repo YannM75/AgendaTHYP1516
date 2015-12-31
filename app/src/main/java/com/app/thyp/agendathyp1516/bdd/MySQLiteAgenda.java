@@ -13,7 +13,7 @@ public class MySQLiteAgenda extends SQLiteOpenHelper {
     //Tables
     public final static String TABLE_USERS = "USERS";
     public final static String TABLE_CLASSROOMS = "CLASSROOMS";
-    public final static String TABLE_CLASS = "CLASS";
+    public final static String TABLE_CLASS = "COURS";
     //Columns table_users
     public final static String CL_PSEUDO= "LOGIN";
     public final static String CL_PWD = "PASSWORD";
@@ -38,9 +38,9 @@ public class MySQLiteAgenda extends SQLiteOpenHelper {
     private static final String CREATE_TABLE_CLASS =
             "CREATE TABLE " + TABLE_CLASS + " (" + CL_ID +
                     " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    CL_NAME_TEACHER + " VARCHAR(250) NOT NULL, " +
-                    CL_NAME_CLASS + " VARCHAR(250) NOT NULL, " +
-                    CL_DATE + " VARCHAR(250) NOT NULL)";
+                    CL_NAME_TEACHER + " text NOT NULL, " +
+                    CL_NAME_CLASS + " text NOT NULL, " +
+                    CL_DATE + " text);";
     @Override
     public void onCreate(SQLiteDatabase db) {
         //Supression de la table des users
@@ -65,6 +65,17 @@ public class MySQLiteAgenda extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CLASS);
 
+        Log.i("onCreate MySQL : ", "Create tables");
+        db.execSQL(CREATE_TABLE_USER);
+
+        Log.i("Request : ",CREATE_TABLE_USER);
+        db.execSQL(CREATE_TABLE_ROOM);
+
+        Log.i("onCreate MySQL : ", "Create table CLASS");
+        db.execSQL(CREATE_TABLE_CLASS);
     }
 }

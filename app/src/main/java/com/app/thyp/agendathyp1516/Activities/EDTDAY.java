@@ -16,16 +16,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.thyp.agendathyp1516.R;
-import com.app.thyp.agendathyp1516.bdd.ClassDataSource;
-import com.app.thyp.agendathyp1516.bean.Class;
+import com.app.thyp.agendathyp1516.bdd.CoursDataSource;
+import com.app.thyp.agendathyp1516.bean.Cours;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
 public class EDTDAY extends AppCompatActivity {
-    ClassDataSource dbClass;
-    ArrayList<Class> q = new ArrayList<Class>();
+    CoursDataSource dbCours;
+    ArrayList<Cours> q = new ArrayList<Cours>();
     CustomAdapter adapter;
     ListView lv;
 
@@ -59,22 +59,22 @@ public class EDTDAY extends AppCompatActivity {
         int month = c.get(Calendar.MONTH);
         int year = c.get(Calendar.YEAR);
         */
-        dbClass = new ClassDataSource(this);
+        dbCours = new CoursDataSource(this);
 
-        Class class1 = new Class("Android", "Guillaume", date);
-        Class class2 = new Class("Gestion de projet", "Khaldoun", date);
-        Class class3 = new Class("Technique web", "Nasserdine", date);
+        Cours class1 = new Cours("Android", "Guillaume", date.toString());
+        Cours class2 = new Cours("Gestion de projet", "Khaldoun", date.toString());
+        Cours class3 = new Cours("Technique web", "Nasserdine", date.toString());
 
         try {
-            dbClass.open();
+            dbCours.open();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        dbClass.createClass(class1);
-        dbClass.createClass(class2);
-        dbClass.createClass(class3);
+        dbCours.createClass(class1);
+        dbCours.createClass(class2);
+        dbCours.createClass(class3);
 
-        dbClass.close();
+        dbCours.close();
 
 
         final Calendar cal = Calendar.getInstance();
@@ -105,9 +105,9 @@ public class EDTDAY extends AppCompatActivity {
 
             String resultat = "";
 
-            if (dbClass != null) {
+            if (dbCours != null) {
                 try {
-                    dbClass.open();
+                    dbCours.open();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -130,7 +130,7 @@ public class EDTDAY extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), resultat, Toast.LENGTH_SHORT).show();
             }*/
 
-            q = dbClass.getAllElements();
+            q = dbCours.getAllElements();
             for(int i=0;i<q.size();i++)
             {
                 Log.i("outside",""+q.get(i).getName_class());
@@ -140,14 +140,14 @@ public class EDTDAY extends AppCompatActivity {
             lv.setAdapter(new CustomAdapter(EDTDAY.this,q));
             lv.setAdapter(adapter);
 
-            dbClass.close();
+            dbCours.close();
         }
     };
-    class CustomAdapter extends ArrayAdapter<Class> {
-        ArrayList<Class> list;
+    class CustomAdapter extends ArrayAdapter<Cours> {
+        ArrayList<Cours> list;
         LayoutInflater  mInfalter;
 
-        public CustomAdapter(Context context, ArrayList<Class> list) {
+        public CustomAdapter(Context context, ArrayList<Cours> list) {
             super(context, R.layout.customlayout, list);
             this.list = list;
             mInfalter = LayoutInflater.from(context);
