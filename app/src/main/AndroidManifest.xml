@@ -22,24 +22,34 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".Activities.ActivityMenu" />
+        <activity android:name=".Activities.ActivityMenuEtudiant" />
         <activity
             android:name=".Activities.EDTDAY"
             android:label="@string/title_activity_edtday"
-            android:parentActivityName=".Activities.ActivityMenu"
+            android:parentActivityName=".Activities.ActivityMenuEtudiant"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.app.thyp.agendathyp1516.Activities.ActivityMenu" />
+                android:value=".Activities.ActivityMenuEtudiant" />
+        </activity>
+        <activity android:name=".Activities.ActivityMenuProf" />
+        <activity
+            android:name=".Activities.EDTDAY2"
+            android:label="@string/title_activity_edtday"
+            android:parentActivityName=".Activities.ActivityMenuProf"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.ActivityMenuProf" />
         </activity>
         <activity
             android:name=".Activities.EdtWeek"
             android:label="@string/title_activity_edt_week"
-            android:parentActivityName=".Activities.ActivityMenu"
+            android:parentActivityName=".Activities.ActivityMenuEtudiant"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.app.thyp.agendathyp1516.Activities.ActivityMenu" />
+                android:value=".Activities.ActivityMenuEtudiant" />
         </activity>
         <activity
             android:name=".Activities.GestionEdt"

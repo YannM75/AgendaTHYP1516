@@ -25,7 +25,7 @@ public class RoomDataSource {
 
         dico = new Dictionary();
 
-        dbHelper = new MySQLiteAgenda(context, dico.NOM_BDD,null, dico.VERSION_BDD);
+        dbHelper = new MySQLiteAgenda(context, Dictionary.NOM_BDD,null, Dictionary.VERSION_BDD);
     }
     public void open() throws SQLException {
         database = dbHelper.getWritableDatabase();

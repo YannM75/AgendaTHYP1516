@@ -8,7 +8,7 @@ import android.widget.Button;
 
 import com.app.thyp.agendathyp1516.R;
 
-public class ActivityMenu extends AppCompatActivity {
+public class ActivityMenuEtudiant extends AppCompatActivity {
     Intent intent;
     Button btnJour;
     @Override

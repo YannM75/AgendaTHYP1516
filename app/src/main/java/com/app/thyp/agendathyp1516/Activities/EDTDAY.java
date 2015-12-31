@@ -2,10 +2,16 @@ package com.app.thyp.agendathyp1516.Activities;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,23 +20,28 @@ import com.app.thyp.agendathyp1516.bdd.ClassDataSource;
 import com.app.thyp.agendathyp1516.bean.Class;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Calendar;
 
-public class EDTDAY extends ActionBarActivity {
+public class EDTDAY extends AppCompatActivity {
     ClassDataSource dbClass;
+    ArrayList<Class> q = new ArrayList<Class>();
+    CustomAdapter adapter;
+    ListView lv;
 
     int year_x, month_x, day_x;
     static final int DIALOG_ID = 0;
-    TextView cours;
-    TextView nomProf;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edtday);
-        cours = (TextView) findViewById(R.id.nom_cours);
-        nomProf = (TextView) findViewById(R.id.nom_prof);
 
+        //cours = (TextView) findViewById(R.id.nom_cours);
+        //nomProf = (TextView) findViewById(R.id.nom_prof);
+
+        //listView = (ListView) findViewById(R.id.listView);
         String date = "2015/12/30"; // Retrived date in your specified format from sqlite
         /*
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -91,7 +102,6 @@ public class EDTDAY extends ActionBarActivity {
             month_x = monthOfYear + 1;
             day_x = dayOfMonth;
 
-            Toast.makeText(EDTDAY.this, year_x + "/" + month_x + "/" + day_x, Toast.LENGTH_LONG).show();
 
             String resultat = "";
 
@@ -102,24 +112,70 @@ public class EDTDAY extends ActionBarActivity {
                     e.printStackTrace();
                 }
             }
-            resultat += year_x;
-            resultat += "/" + month_x;
-            resultat += "/" + day_x;
 
-            Class u = null;
-            u = dbClass.getClassByDate(resultat);
+
+            Toast.makeText(EDTDAY.this, year_x + "/" + month_x + "/" + day_x, Toast.LENGTH_LONG).show();
+
+
+            /*
             if (u != null) {
                 Log.e("Pseudo database ", u.getName_class());
                 Log.e("mdp database", u.getName_teacher());
                 Log.e("groupe user", String.valueOf(u.getDate_class()));
 
-                cours.setText(u.getName_class());
-                nomProf.setText(u.getName_teacher());
 
+                //cours.setText(u.getName_class());
+                //nomProf.setText(u.getName_teacher());
             } else {
                 Toast.makeText(getApplicationContext(), resultat, Toast.LENGTH_SHORT).show();
+            }*/
+
+            q = dbClass.getAllElements();
+            for(int i=0;i<q.size();i++)
+            {
+                Log.i("outside",""+q.get(i).getName_class());
             }
+
+            lv = (ListView) findViewById(R.id.listView1);
+            lv.setAdapter(new CustomAdapter(EDTDAY.this,q));
+            lv.setAdapter(adapter);
+
             dbClass.close();
         }
     };
+    class CustomAdapter extends ArrayAdapter<Class> {
+        ArrayList<Class> list;
+        LayoutInflater  mInfalter;
+
+        public CustomAdapter(Context context, ArrayList<Class> list) {
+            super(context, R.layout.customlayout, list);
+            this.list = list;
+            mInfalter = LayoutInflater.from(context);
+        }
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ViewHolder holder;
+            if (convertView == null) {
+                convertView = mInfalter.inflate(R.layout.customlayout, parent, false);
+                holder = new ViewHolder();
+                holder.tv1 = (TextView) convertView.findViewById(R.id.textView1);
+                convertView.setTag(holder);
+            } else {
+                holder = (ViewHolder) convertView.getTag();
+            }
+
+            holder.tv1.setText(list.get(position).getName_class());
+            return convertView;
+        }
+    }
+
+    static class ViewHolder
+    {
+        TextView tv1;
+    }
+
+
+
+    //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 }
+

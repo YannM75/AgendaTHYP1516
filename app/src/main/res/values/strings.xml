@@ -18,7 +18,12 @@
 
     <string name="action_settings">Settings</string>
     <string name="EDT">Mon emploi du temps</string>
+    <string name="EDT2">emploi du temps des etudiants</string>
     <string name="Abs">Liste des profs absents</string>
-    <string name="Exam">Dates examens</string>
+    <string name="Exam">Dates des examens</string>
     <string name="idcours">ok</string>
+    <string name="AjtCours">Ajouter un cours</string>
+    <string name="AjtAbs">Ajouter une abscence</string>
+    <string name="AjtExam">ajouter un examen</string>
+    <string name="AjtSalle">Ajouter une salle</string>
 </resources>

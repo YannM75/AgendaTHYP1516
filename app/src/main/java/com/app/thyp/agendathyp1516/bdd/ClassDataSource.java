@@ -10,6 +10,8 @@ import com.app.thyp.agendathyp1516.Dictionary;
 import com.app.thyp.agendathyp1516.bean.Class;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.app.thyp.agendathyp1516.bdd.MySQLiteAgenda.TABLE_CLASS;
 
@@ -28,7 +30,7 @@ public class ClassDataSource {
     public ClassDataSource(Context context) {
 
         dico = new Dictionary();
-        dbHelper = new MySQLiteAgenda(context, dico.NOM_BDD,null, dico.VERSION_BDD);
+        dbHelper = new MySQLiteAgenda(context, Dictionary.NOM_BDD,null, Dictionary.VERSION_BDD);
     }
     public void open() throws SQLException {
         database = dbHelper.getWritableDatabase();
@@ -48,7 +50,7 @@ public class ClassDataSource {
 
         return database.insert(TABLE_CLASS, null, values);
     }
-    
+
     public Class getClassByDate(String date){
         try{
             Cursor c = database.rawQuery("SELECT * FROM " + MySQLiteAgenda.TABLE_CLASS + " WHERE " + MySQLiteAgenda.CL_DATE + " = ?", new String[]{date});
@@ -57,6 +59,22 @@ public class ClassDataSource {
             Log.e("Error getUserByRawQuery", e.toString());
             return null;
         }
+    }
+
+    public List<Class> getAllClass() {
+        List<Class> cours = new ArrayList<Class>();
+
+        Cursor cursor = database.query(MySQLiteAgenda.TABLE_CLASS,
+                allColumns, null, null, null, null, null);
+
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            Class user = cursorToUser(cursor);
+            cours.add(user);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return cours;
     }
 
     private Class cursorToUser(Cursor cursor) {
@@ -71,4 +89,41 @@ public class ClassDataSource {
 
         return myclass;
     }
+
+    public ArrayList<Class> getAllElements() {
+
+        ArrayList<Class> list = new ArrayList<Class>();
+
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + MySQLiteAgenda.TABLE_CLASS;
+
+        try {
+
+            Cursor cursor = database.rawQuery(selectQuery, null);
+            try {
+
+                // looping through all rows and adding to list
+                if (cursor.moveToFirst()) {
+                    do {
+                        Class obj = new Class();
+                        //only one column
+                        obj.setName_class(cursor.getString(0));
+
+                        //you could add additional columns here..
+
+                        list.add(obj);
+                    } while (cursor.moveToNext());
+                }
+
+            } finally {
+                try { cursor.close(); } catch (Exception ignore) {}
+            }
+
+        } finally {
+            try { database.close(); } catch (Exception ignore) {}
+        }
+
+        return list;
+    }
+
 }

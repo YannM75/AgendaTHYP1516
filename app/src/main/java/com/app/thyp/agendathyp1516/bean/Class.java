@@ -8,16 +8,30 @@ public class Class {
     private String name_teacher;
     private String date_class;
 
-    public Class(String name_class, String name_teacher, String date_class ){
+    public Class() {
+        super();
+    }
 
+    public Class(String name_class, String name_teacher, String date_class ){
+        super();
         this.name_class = name_class;
         this.name_teacher= name_teacher;
         this.date_class= date_class;
     }
 
+    @Override
+    public String toString() {
+        return this.name_class + ". " + this.name_teacher + " [$" + this.date_class + "]";
+    }
+
     public String getName_class(){
         return this.name_class;
     }
+
+    public void setName_class(String name_class){
+        this.name_class = name_class;
+    }
+
     public String getName_teacher(){
         return this.name_teacher;
     }

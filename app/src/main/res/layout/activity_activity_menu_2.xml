@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.app.thyp.agendathyp1516.Activities.ActivityMenuProf"
+    android:background="@drawable/abc_menu_hardkey_panel_mtrl_mult">
+
+    <Button
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/EDT2"
+        android:id="@+id/btnJour"
+        android:onClick="@string/title_activity_edtday"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="27dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Abs"
+        android:id="@+id/btnAbs"
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        android:layout_below="@+id/btnExam"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/btnExam"
+        android:layout_alignEnd="@+id/btnExam" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnExam"
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        android:text="@string/Exam"
+        android:layout_below="@+id/btnJour"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/btnJour"
+        android:layout_alignEnd="@+id/btnJour" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:text="Consultation de l&apos;agenda"
+        android:id="@+id/textView5"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:text="Edition de l&apos;agenda"
+        android:id="@+id/textView4"
+        android:layout_marginTop="39dp"
+        android:layout_below="@+id/btnAbs"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/AjtCours"
+        android:id="@+id/AjtCours"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/btnAbs"
+        android:layout_alignEnd="@+id/btnAbs"
+        style="@style/Base.Widget.AppCompat.Button.Colored" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/AjtAbs"
+        android:id="@+id/AjtAbs"
+        android:layout_below="@+id/AjtCours"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/AjtCours"
+        android:layout_alignEnd="@+id/AjtCours"
+        style="@style/Base.Widget.AppCompat.Button.Colored" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/AjtExam"
+        android:id="@+id/AjtExam"
+        android:layout_below="@+id/AjtAbs"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/AjtAbs"
+        android:layout_alignEnd="@+id/AjtAbs"
+        style="@style/Base.Widget.AppCompat.Button.Colored" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/AjtSalle"
+        android:id="@+id/AjtSalle"
+        android:layout_below="@+id/AjtExam"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        style="@style/Base.Widget.AppCompat.Button.Colored" />
+
+</RelativeLayout>

@@ -1,16 +1,16 @@
 package com.app.thyp.agendathyp1516;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-
-import com.app.thyp.agendathyp1516.Activities.ActivityMenu;
+import com.app.thyp.agendathyp1516.Activities.ActivityMenuEtudiant;
+import com.app.thyp.agendathyp1516.Activities.ActivityMenuProf;
 import com.app.thyp.agendathyp1516.bdd.UserDataSource;
 import com.app.thyp.agendathyp1516.bean.User;
 
@@ -22,15 +22,17 @@ public class ActivityConnection extends AppCompatActivity {
     Button btnCancel;
     EditText edtTxtPseudo;
     EditText edtTxtPWD;
-    Intent intent;
+    Intent intentEtudiant;
+    Intent intentProf;
+
     UserDataSource dbUsers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connection);
-        intent = new Intent(this, ActivityMenu.class);
-
+        intentEtudiant = new Intent(this, ActivityMenuEtudiant.class);
+        intentProf = new Intent(this, ActivityMenuProf.class);
         Log.d("ActivityCon_onCreate", "onCreate ");
 
         btnValidaton = (Button)findViewById(R.id.btnValidCo);
@@ -68,7 +70,7 @@ public class ActivityConnection extends AppCompatActivity {
             String pseudo = edtTxtPseudo.getText().toString();
             String pwd = edtTxtPWD.getText().toString();
 
-            Log.i("PSEUDO : ",pseudo);
+            Log.i("PSEUDO : ", pseudo);
             Log.i("PWD : ", pwd);
 
             if(dbUsers != null){
@@ -83,14 +85,19 @@ public class ActivityConnection extends AppCompatActivity {
                     Log.e("Pseudo database ", u.getPseudo());
                     Log.e("mdp database", u.getPassWord());
                     Log.e("groupe user", String.valueOf(u.getGroupe()));
+
                     if(pseudo.equals(u.getPseudo())){
                         Log.i("Confirmation ", "User reconnu");
                         if(pwd.equals(u.getPassWord())){
-                            startActivity(intent);
+                            if(String.valueOf(u.getGroupe()) == "1"){
+                                startActivity(intentEtudiant);
+                            }
+                            else{startActivity(intentProf);}
+
                         }
                         else{
                             Log.e("error mdp", "mdp null");
-                            Toast.makeText(getApplicationContext(),"Mot de passe incorrect !", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Mot de passe incorrect !", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }else{

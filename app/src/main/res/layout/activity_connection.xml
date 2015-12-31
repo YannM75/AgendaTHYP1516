@@ -12,8 +12,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
+        android:textStyle="bold"
+        android:textSize="@dimen/abc_text_size_menu_material"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp" />
 
 
     <Button
@@ -23,12 +26,12 @@
         android:text="@string/btnValidConnection"
         android:id="@+id/btnValidCo"
         android:textStyle="bold"
-        android:layout_marginTop="54dp"
-        android:layout_below="@+id/edTxtPwd"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView"
-        android:layout_toRightOf="@+id/textView3"
-        android:layout_toEndOf="@+id/textView3" />
+        android:layout_marginBottom="105dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/btnCancelCo"
+        android:layout_alignStart="@+id/btnCancelCo"
+        android:layout_alignRight="@+id/edTxtPwd"
+        android:layout_alignEnd="@+id/edTxtPwd" />
 
     <Button
         style="@style/Base.Widget.AppCompat.Button.Colored"
@@ -37,11 +40,12 @@
         android:text="@string/btnCancelConnection"
         android:id="@+id/btnCancelCo"
         android:textStyle="bold"
-        android:layout_below="@+id/btnValidCo"
-        android:layout_alignLeft="@+id/btnValidCo"
-        android:layout_alignStart="@+id/btnValidCo"
-        android:layout_alignRight="@+id/btnValidCo"
-        android:layout_alignEnd="@+id/btnValidCo" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/edTxtPwd"
+        android:layout_alignStart="@+id/edTxtPwd"
+        android:layout_marginBottom="45dp"
+        android:layout_alignRight="@+id/edTxtPwd"
+        android:layout_alignEnd="@+id/edTxtPwd" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -49,10 +53,8 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/mdp"
         android:id="@+id/textView2"
-        android:layout_below="@+id/edTxtPseudo"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="41dp" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -60,21 +62,21 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Identifiant:"
         android:id="@+id/textView3"
+        android:layout_marginTop="66dp"
         android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="69dp" />
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:id="@+id/edTxtPseudo"
+        android:inputType="textPersonName"
         android:layout_below="@+id/textView3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:inputType="textPersonName" />
+        android:layout_alignLeft="@+id/edTxtPwd"
+        android:layout_alignStart="@+id/edTxtPwd"
+        android:layout_alignRight="@+id/edTxtPwd"
+        android:layout_alignEnd="@+id/edTxtPwd" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -83,8 +85,9 @@
         android:ems="10"
         android:id="@+id/edTxtPwd"
         android:layout_below="@+id/textView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView" />
 
 </RelativeLayout>
