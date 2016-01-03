@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+
+    android:padding="6dip">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Cours :"
+        android:id="@+id/textCours"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/textHeureData"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textExamData"
+        android:layout_alignTop="@+id/textCours"
+        android:layout_toRightOf="@+id/textCours"
+        android:layout_toEndOf="@+id/textSalleData" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Professeur : "
+        android:id="@+id/textProf"
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/textCours"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textProfData"
+        android:layout_alignTop="@+id/textProf"
+        android:layout_toRightOf="@+id/textProf"
+        android:layout_toEndOf="@+id/textProf" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textDateData"
+        android:layout_marginRight="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_below="@+id/textSalleData"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:textSize="15dp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textHeureData"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp"
+        android:textColor="#ba0000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Salle :"
+        android:id="@+id/textSalle"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/textProf"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textSalleData"
+        android:layout_alignTop="@+id/textSalle"
+        android:layout_toRightOf="@+id/textCours"
+        android:layout_toEndOf="@+id/textCours" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textCoursData"
+        android:layout_alignBottom="@+id/textExamData"
+        android:layout_toRightOf="@+id/textExamData"
+        android:layout_toEndOf="@+id/textExamData" />
+</RelativeLayout>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:nestedScrollingEnabled="true">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/AjtAbs"
+        android:id="@+id/textView11"
+        android:layout_marginTop="27dp"
+
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Nom du prof :"
+        android:id="@+id/textView12"
+        android:layout_marginTop="49dp"
+        android:layout_below="@+id/textView11"
+        android:layout_alignLeft="@+id/editTextNomExam"
+        android:layout_alignStart="@+id/editTextNomExam" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editTextNomExam"
+        android:layout_below="@+id/textView12"
+        android:layout_alignLeft="@+id/textView13"
+        android:layout_alignStart="@+id/textView13"
+        android:layout_alignRight="@+id/textView13"
+        android:layout_alignEnd="@+id/textView13" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Date absence :"
+        android:id="@+id/textView13"
+        android:layout_below="@+id/editTextNomExam"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/editTextDate"
+        android:layout_below="@+id/textView13"
+        android:layout_alignLeft="@+id/textView13"
+        android:layout_alignStart="@+id/textView13"
+        android:layout_alignRight="@+id/textView13"
+        android:layout_alignEnd="@+id/textView13" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Motif :"
+        android:id="@+id/textView14"
+        android:layout_below="@+id/editTextDate"
+        android:layout_alignLeft="@+id/editTextDate"
+        android:layout_alignStart="@+id/editTextDate" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/editTextMotif"
+        android:layout_below="@+id/textView14"
+        android:layout_alignRight="@+id/editTextDate"
+        android:layout_alignEnd="@+id/editTextDate"
+        android:layout_alignLeft="@+id/textView13"
+        android:layout_alignStart="@+id/textView13" />
+
+    <Button
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ajouter"
+        android:id="@+id/btnAjouterEx"
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        android:layout_marginTop="34dp"
+        android:layout_below="@+id/editTextMotif"
+        android:layout_alignLeft="@+id/textView11"
+        android:layout_alignStart="@+id/textView11"
+        android:layout_alignRight="@+id/textView11"
+        android:layout_alignEnd="@+id/textView11" />
+
+    <Button
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Annuler"
+        android:id="@+id/button5"
+        android:layout_below="@+id/btnAjouterEx"
+        android:layout_alignLeft="@+id/btnAjouterEx"
+        android:layout_alignStart="@+id/btnAjouterEx"
+        android:layout_alignRight="@+id/btnAjouterEx"
+        android:layout_alignEnd="@+id/btnAjouterEx" />
+
+
+</RelativeLayout>

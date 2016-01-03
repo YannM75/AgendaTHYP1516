@@ -14,7 +14,8 @@
         android:id="@+id/textView6"
         android:layout_marginTop="31dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -22,12 +23,10 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Nom du cours:"
         android:id="@+id/textView7"
-        android:layout_marginTop="57dp"
-        android:layout_marginRight="68dp"
-        android:layout_marginEnd="68dp"
+        android:layout_marginTop="63dp"
         android:layout_below="@+id/textView6"
-        android:layout_alignRight="@+id/textView6"
-        android:layout_alignEnd="@+id/textView6" />
+        android:layout_alignLeft="@+id/textView6"
+        android:layout_alignStart="@+id/textView6" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -35,99 +34,123 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="N°salle:"
         android:id="@+id/textView9"
-        android:layout_below="@+id/editText2"
-        android:layout_alignLeft="@+id/editText3"
-        android:layout_alignStart="@+id/editText3" />
+        android:layout_below="@+id/edtTxtNomProf"
+        android:layout_alignLeft="@+id/edtTxtNomProf"
+        android:layout_alignStart="@+id/edtTxtNomProf" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Date:"
-        android:id="@+id/textView10"
-        android:layout_below="@+id/editText3"
-        android:layout_alignLeft="@+id/editText3"
-        android:layout_alignStart="@+id/editText3" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Nom du professeur:"
+        android:text="Nom du prof:"
         android:id="@+id/textView8"
-        android:layout_below="@+id/editText"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText" />
+        android:layout_below="@+id/edtTxtNomCours"
+        android:layout_alignLeft="@+id/edtTxtNomProf"
+        android:layout_alignStart="@+id/edtTxtNomProf" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/edtTxtNomCours"
         android:layout_below="@+id/textView7"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2"
-        android:layout_alignRight="@+id/button"
-        android:layout_alignEnd="@+id/button" />
+        android:layout_alignLeft="@+id/edtTxtNomProf"
+        android:layout_alignStart="@+id/edtTxtNomProf"
+        android:inputType="textPersonName"
+        android:layout_alignRight="@+id/textView7"
+        android:layout_alignEnd="@+id/textView7" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/edtTxtNomProf"
         android:layout_below="@+id/textView8"
         android:layout_alignLeft="@+id/textView7"
         android:layout_alignStart="@+id/textView7"
-        android:layout_alignRight="@+id/button"
-        android:layout_alignEnd="@+id/button" />
+        android:layout_alignRight="@+id/textView7"
+        android:layout_alignEnd="@+id/textView7" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText3"
+        android:id="@+id/editTxtSalleCours"
         android:layout_below="@+id/textView9"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2"
+        android:layout_alignLeft="@+id/edtTxtNomProf"
+        android:layout_alignStart="@+id/edtTxtNomProf"
         android:layout_toStartOf="@+id/textView6"
-        android:layout_alignRight="@+id/editText2"
-        android:layout_alignEnd="@+id/editText2" />
+        android:layout_alignRight="@+id/edtTxtNomProf"
+        android:layout_alignEnd="@+id/edtTxtNomProf" />
+
+    <Button
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/BtnAjouter"
+        android:id="@+id/btnAjouterEx"
+        android:layout_above="@+id/button"
+        android:layout_alignRight="@+id/editTxtHeureCours"
+        android:layout_alignEnd="@+id/editTxtHeureCours"
+        android:layout_alignLeft="@+id/editTxtHeureCours"
+        android:layout_alignStart="@+id/editTxtHeureCours" />
+
+    <Button
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/BtnAnnuler"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/btnAjouterEx"
+        android:layout_alignStart="@+id/btnAjouterEx"
+        android:layout_marginBottom="33dp"
+        android:id="@+id/button"
+        android:layout_alignRight="@+id/btnAjouterEx"
+        android:layout_alignEnd="@+id/btnAjouterEx" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Date :"
+        android:id="@+id/textView10"
+        android:layout_below="@+id/editTxtSalleCours"
+        android:layout_alignLeft="@+id/editTxtSalleCours"
+        android:layout_alignStart="@+id/editTxtSalleCours" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="date"
         android:ems="10"
-        android:id="@+id/editText4"
+        android:id="@+id/edtTxtDateCours"
         android:layout_below="@+id/textView10"
         android:layout_alignLeft="@+id/textView10"
         android:layout_alignStart="@+id/textView10"
-        android:layout_alignRight="@+id/button"
-        android:layout_alignEnd="@+id/button" />
+        android:layout_alignRight="@+id/editTxtSalleCours"
+        android:layout_alignEnd="@+id/editTxtSalleCours" />
 
-    <Button
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ajouter "
-        android:id="@+id/button"
-        android:layout_below="@+id/editText4"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="78dp"
-        android:layout_marginEnd="78dp"
-        android:layout_alignLeft="@+id/textView7"
-        android:layout_alignStart="@+id/textView7" />
+        android:inputType="time"
+        android:ems="10"
+        android:id="@+id/editTxtHeureCours"
+        android:layout_below="@+id/textView23"
+        android:layout_alignLeft="@+id/textView23"
+        android:layout_alignStart="@+id/textView23"
+        android:layout_alignRight="@+id/edtTxtDateCours"
+        android:layout_alignEnd="@+id/edtTxtDateCours" />
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Annuler"
-        android:id="@+id/button2"
-        android:layout_below="@+id/button"
-        android:layout_alignRight="@+id/editText4"
-        android:layout_alignEnd="@+id/editText4"
-        android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Heure:"
+        android:id="@+id/textView23"
+        android:layout_below="@+id/edtTxtDateCours"
+        android:layout_alignLeft="@+id/edtTxtDateCours"
+        android:layout_alignStart="@+id/edtTxtDateCours" />
 
 </RelativeLayout>

@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.app.thyp.agendathyp1516.Dictionary;
-import com.app.thyp.agendathyp1516.bean.Cours;
+import com.app.thyp.agendathyp1516.bean.Class;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,17 +18,16 @@ import static com.app.thyp.agendathyp1516.bdd.MySQLiteAgenda.TABLE_CLASS;
 /**
  * Created by Abdelbassit on 30/12/2015.
  */
-public class CoursDataSource {
+public class ClassDataSource {
 
-    private static final String TAG = " ddd";
     private SQLiteDatabase database;
     private MySQLiteAgenda dbHelper;
     Dictionary dico;
 
     private String[] allColumns = { MySQLiteAgenda.CL_ID,
-            MySQLiteAgenda.CL_NAME_TEACHER, MySQLiteAgenda.CL_NAME_CLASS, MySQLiteAgenda.CL_DATE, MySQLiteAgenda.CL_HEURE, MySQLiteAgenda.CL_SALLE};
+            MySQLiteAgenda.CL_NAME_TEACHER, MySQLiteAgenda.CL_NAME_CLASS, MySQLiteAgenda.CL_DATE};
 
-    public CoursDataSource(Context context) {
+    public ClassDataSource(Context context) {
 
         dico = new Dictionary();
         dbHelper = new MySQLiteAgenda(context, Dictionary.NOM_BDD,null, Dictionary.VERSION_BDD);
@@ -39,35 +38,20 @@ public class CoursDataSource {
     public void close(){
         database.close();
     }
-
     public SQLiteDatabase getBDD(){
         return database;
     }
-
-    public Long createClass(Cours myclass) {
+    public Long createClass(Class myclass) {
         ContentValues values = new ContentValues();
         //values.put(MySQLiteAgenda.CL_ID, 1);
         values.put(MySQLiteAgenda.CL_NAME_CLASS, myclass.getName_class());
         values.put(MySQLiteAgenda.CL_NAME_TEACHER, myclass.getName_teacher());
         values.put(MySQLiteAgenda.CL_DATE, myclass.getDate_class());
-        values.put(MySQLiteAgenda.CL_HEURE, myclass.getHeure());
-        values.put(MySQLiteAgenda.CL_SALLE, myclass.getSalle());
 
         return database.insert(TABLE_CLASS, null, values);
     }
 
-    public Cours getClassByAllData(String Heure, String date){
-        try{
-            Cursor cursor = database.query(MySQLiteAgenda.TABLE_CLASS,
-                    allColumns, "HEURE=? and DATE=?", new String[] { Heure, date }, null, null, null);
-            return cursorToCoursVerif(cursor);
-        }catch(Exception e){
-            Log.e("Error getUserByRawQuery", e.toString());
-            return null;
-        }
-    }
-
-    public Cours getClassByDate(String date){
+    public Class getClassByDate(String date){
         try{
             Cursor c = database.rawQuery("SELECT * FROM " + MySQLiteAgenda.TABLE_CLASS + " WHERE " + MySQLiteAgenda.CL_DATE + " = ?", new String[]{date});
             return cursorToUser(c);
@@ -77,42 +61,69 @@ public class CoursDataSource {
         }
     }
 
+    public List<Class> getAllClass() {
+        List<Class> cours = new ArrayList<Class>();
 
-
-    public List<Cours> getCours(String date) {
-        List<Cours> COURS = new ArrayList<Cours>();
-        String[] where_arg = {date};
         Cursor cursor = database.query(MySQLiteAgenda.TABLE_CLASS,
-                allColumns, MySQLiteAgenda.CL_DATE+"=?", where_arg , null, null, null);
+                allColumns, null, null, null, null, null);
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            Cours mycours = cursorToUser(cursor);
-            COURS.add(mycours);
+            Class user = cursorToUser(cursor);
+            cours.add(user);
             cursor.moveToNext();
         }
         cursor.close();
-        return COURS;
+        return cours;
     }
 
-    private Cours cursorToUser(Cursor cursor) {
-
-        Cours user = null;
-
-        user = new Cours(cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5));
-
-        return user;
-    }
-    private Cours cursorToCoursVerif(Cursor cursor) {
+    private Class cursorToUser(Cursor cursor) {
 
         if (cursor.getCount() == 0) return null;
 
         cursor.moveToFirst();
 
-        Cours myclass = null;
+        Class myclass = null;
 
-        myclass = new Cours(cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5));
+        myclass = new Class(cursor.getString(1), cursor.getString(2), cursor.getString(3));
 
         return myclass;
     }
+
+    public ArrayList<Class> getAllElements() {
+
+        ArrayList<Class> list = new ArrayList<Class>();
+
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + MySQLiteAgenda.TABLE_CLASS;
+
+        try {
+
+            Cursor cursor = database.rawQuery(selectQuery, null);
+            try {
+
+                // looping through all rows and adding to list
+                if (cursor.moveToFirst()) {
+                    do {
+                        Class obj = new Class();
+                        //only one column
+                        obj.setName_class(cursor.getString(0));
+
+                        //you could add additional columns here..
+
+                        list.add(obj);
+                    } while (cursor.moveToNext());
+                }
+
+            } finally {
+                try { cursor.close(); } catch (Exception ignore) {}
+            }
+
+        } finally {
+            try { database.close(); } catch (Exception ignore) {}
+        }
+
+        return list;
+    }
+
 }

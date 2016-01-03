@@ -4,8 +4,11 @@
     <string name="btnCancelConnection">Annuler</string>
     <string name="txtAgenda">Connexion Agenda THYP</string>
     <string name="title_activity_edtday">EDTDAY</string>
+    <string name="title_activity_affiche_exam">AfficheExam</string>
     <string name="title_activity_edt_week">EdtWeek</string>
-    <string name="title_activity_gestion_edt">GestionEdt</string>
+    <string name="title_activity_gestion_edt">Gestion des cours</string>
+    <string name="title_activity_gestion_absences">Gestion des absences</string>
+    <string name="title_activity_gestion_examen">Gestion des examens</string>
     <string name="title_activity_select_class_room">SelectClassRoom</string>
     <string name="title_activity_select_hours">SelectHours</string>
     <string name="mdp">Mot de passe:</string>
@@ -16,7 +19,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
+       <string name="action_settings">Settings</string>
     <string name="EDT">Mon emploi du temps</string>
     <string name="EDT2">emploi du temps des etudiants</string>
     <string name="Abs">Liste des profs absents</string>
@@ -26,4 +29,7 @@
     <string name="AjtAbs">Ajouter une abscence</string>
     <string name="AjtExam">ajouter un examen</string>
     <string name="AjtSalle">Ajouter une salle</string>
+    <string name="BtnAjouter">Ajouter</string>
+    <string name="BtnAnnuler">Annuler</string>
+
 </resources>

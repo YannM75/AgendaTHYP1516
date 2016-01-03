@@ -16,9 +16,10 @@
         android:id="@+id/btnJour"
         android:onClick="@string/title_activity_edtday"
         android:layout_alignWithParentIfMissing="false"
+        android:layout_marginTop="39dp"
+        android:layout_below="@+id/textView5"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="27dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -61,8 +62,7 @@
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         android:text="Edition de l&apos;agenda"
         android:id="@+id/textView4"
-        android:layout_marginTop="39dp"
-        android:layout_below="@+id/btnAbs"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -70,47 +70,36 @@
         android:layout_height="wrap_content"
         android:text="@string/AjtCours"
         android:id="@+id/AjtCours"
+        style="@style/Base.Widget.AppCompat.Button.Colored"
         android:layout_below="@+id/textView4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_marginTop="43dp"
         android:layout_alignRight="@+id/btnAbs"
-        android:layout_alignEnd="@+id/btnAbs"
-        style="@style/Base.Widget.AppCompat.Button.Colored" />
+        android:layout_alignEnd="@+id/btnAbs" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/AjtAbs"
         android:id="@+id/AjtAbs"
+        style="@style/Base.Widget.AppCompat.Button.Colored"
         android:layout_below="@+id/AjtCours"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/AjtCours"
-        android:layout_alignEnd="@+id/AjtCours"
-        style="@style/Base.Widget.AppCompat.Button.Colored" />
+        android:layout_alignEnd="@+id/AjtCours" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/AjtExam"
         android:id="@+id/AjtExam"
+        style="@style/Base.Widget.AppCompat.Button.Colored"
         android:layout_below="@+id/AjtAbs"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/AjtAbs"
         android:layout_alignEnd="@+id/AjtAbs"
-        style="@style/Base.Widget.AppCompat.Button.Colored" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/AjtSalle"
-        android:id="@+id/AjtSalle"
-        android:layout_below="@+id/AjtExam"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        style="@style/Base.Widget.AppCompat.Button.Colored" />
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

@@ -9,5 +9,5 @@ public class Dictionary {
 
     public static final String KEY_USER = "user";
     public static final String NOM_BDD = "edtAppBDD.db";
-    public static final int VERSION_BDD = 2;
+    public static final int VERSION_BDD = 3;
 }

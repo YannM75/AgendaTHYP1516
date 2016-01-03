@@ -10,23 +10,23 @@ import android.util.Log;
 import android.widget.DatePicker;
 import android.widget.Toast;
 
-import com.app.thyp.agendathyp1516.ItemAdapter;
+import com.app.thyp.agendathyp1516.ItemAdapterExam;
 import com.app.thyp.agendathyp1516.R;
-import com.app.thyp.agendathyp1516.bdd.CoursDataSource;
-import com.app.thyp.agendathyp1516.bean.Cours;
+import com.app.thyp.agendathyp1516.bdd.ExamDataSource;
+import com.app.thyp.agendathyp1516.bean.Exam;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class EDTDAY extends ListActivity {
-    CoursDataSource dbCours;
+public class AfficheExam extends ListActivity {
+    ExamDataSource dbExam;
     // declare class variables
-    private ArrayList<Cours> m_parts = new ArrayList<Cours>();
+    private ArrayList<Exam> m_parts = new ArrayList<Exam>();
     private Runnable viewParts;
-    private ItemAdapter m_adapter;
-
+    private ItemAdapterExam m_adapter;
     int year_x, month_x, day_x;
+
     static final int DIALOG_ID = 0;
 
 
@@ -34,25 +34,26 @@ public class EDTDAY extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_edtday);
+        setContentView(R.layout.activity_exam);
 
         // instantiate our ItemAdapter class
-        m_adapter = new ItemAdapter(this, R.layout.list_item, m_parts);
+        m_adapter = new ItemAdapterExam(this, R.layout.list_item_exam, m_parts);
 
-        String date = "30/12/2015";
 
-        dbCours = new CoursDataSource(this);
+
+        dbExam = new ExamDataSource(this);
 
 
 
         try {
-            dbCours.open();
+            dbExam.open();
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
 
-        dbCours.close();
+        dbExam.close();
+
         final Calendar cal = Calendar.getInstance();
         year_x = cal.get(Calendar.YEAR);
         month_x = cal.get(Calendar.MONTH);
@@ -83,13 +84,13 @@ public class EDTDAY extends ListActivity {
             // and then create objects from that data.
             m_adapter.clear();
             try {
-                dbCours.open();
+                dbExam.open();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
 
-            dbCours.close();
-            m_adapter = new ItemAdapter(EDTDAY.this, R.layout.list_item, m_parts);
+            dbExam.close();
+            m_adapter = new ItemAdapterExam(AfficheExam.this, R.layout.list_item, m_parts);
 
             // display the list.
             setListAdapter(m_adapter);
@@ -111,14 +112,14 @@ public class EDTDAY extends ListActivity {
             resultat +=  month_x < 9 ?  "0"+month_x + "/": month_x + "/";
             resultat +=year_x+"";
 
-            if (dbCours != null) {
+            if (dbExam != null) {
                 try {
-                    dbCours.open();
+                    dbExam.open();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
-            m_parts = (ArrayList)dbCours.getCours(resultat);
+            m_parts = (ArrayList)dbExam.getExam(resultat);
             viewParts = new Runnable(){
                 public void run(){
                     handler.sendEmptyMessage(0);
@@ -126,10 +127,18 @@ public class EDTDAY extends ListActivity {
             };
             Thread thread =  new Thread(null, viewParts, "MagentoBackground");
             thread.start();
-            Toast.makeText(EDTDAY.this, year_x + "/" + month_x + "/" + day_x, Toast.LENGTH_LONG).show();
+            Toast.makeText(AfficheExam.this, year_x + "/" + month_x + "/" + day_x, Toast.LENGTH_LONG).show();
 
         }
     };
+
+
+
+
+
+
+
+
 
 
 }

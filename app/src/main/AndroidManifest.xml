@@ -12,6 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity android:name=".ActivityConnection" >
+        </activity>
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <activity
+            android:name=".splashscreen"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:noHistory="true" >
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,26 +38,26 @@
             android:name=".Activities.EDTDAY"
             android:label="@string/title_activity_edtday"
             android:parentActivityName=".Activities.ActivityMenuEtudiant"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.ActivityMenuEtudiant" />
+        </activity>
+        <activity
+            android:name=".Activities.AfficheExam"
+            android:label="@string/title_activity_affiche_exam"
+            android:parentActivityName=".Activities.ActivityMenuEtudiant"
+            android:theme="@style/AppTheme" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activities.ActivityMenuEtudiant" />
         </activity>
         <activity android:name=".Activities.ActivityMenuProf" />
         <activity
-            android:name=".Activities.EDTDAY2"
-            android:label="@string/title_activity_edtday"
-            android:parentActivityName=".Activities.ActivityMenuProf"
-            android:theme="@style/AppTheme.NoActionBar" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.ActivityMenuProf" />
-        </activity>
-        <activity
             android:name=".Activities.EdtWeek"
             android:label="@string/title_activity_edt_week"
             android:parentActivityName=".Activities.ActivityMenuEtudiant"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activities.ActivityMenuEtudiant" />
@@ -54,12 +65,12 @@
         <activity
             android:name=".Activities.GestionEdt"
             android:label="@string/title_activity_gestion_edt"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".Activities.SelectClassRoom"
             android:label="@string/title_activity_select_class_room"
             android:parentActivityName=".Activities.GestionEdt"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.app.thyp.agendathyp1516.Activities.GestionEdt" />
@@ -68,11 +79,24 @@
             android:name=".Activities.SelectHours"
             android:label="@string/title_activity_select_hours"
             android:parentActivityName=".Activities.GestionEdt"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.app.thyp.agendathyp1516.Activities.GestionEdt" />
         </activity>
+        <activity
+            android:name=".Activities.ABSENCES"
+            android:label="@string/title_activity_gestion_absences"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Activities.EXAMEN"
+            android:label="@string/title_activity_gestion_examen"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".Activities.SALLE"
+            android:label="@string/title_activity_gestion_absences"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

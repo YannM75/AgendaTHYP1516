@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+
 import com.app.thyp.agendathyp1516.R;
 
 /**
@@ -14,10 +15,20 @@ import com.app.thyp.agendathyp1516.R;
 public class ActivityMenuProf extends AppCompatActivity {
 
     Intent intentAjtCours;
-    Button btnAjCours;
-
+    Intent intentAjtAbs;
+    Intent intentAjtExam;
     Intent intentEDT;
+    Intent intentExam;
+
+    Button btnAjCours;
+    Button btnAbs;
+    Button btnAjtExam;
+    Button btnExam;
     Button btnJour;
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,28 +36,64 @@ public class ActivityMenuProf extends AppCompatActivity {
 
 
         intentAjtCours = new Intent(this, GestionEdt.class);
+        intentAjtAbs = new Intent(this, ABSENCES.class);
         intentEDT = new Intent(this, EDTDAY.class);
+        intentExam = new Intent(this, AfficheExam.class);
+        intentAjtExam = new Intent(this, EXAMEN.class);
+
 
         btnAjCours = (Button) findViewById(R.id.AjtCours);
         btnJour = (Button) findViewById(R.id.btnJour);
+        btnAbs = (Button) findViewById(R.id.AjtAbs);
+        btnAjtExam = (Button) findViewById(R.id.AjtExam);
+        btnExam = (Button) findViewById(R.id.btnExam);
+
 
         btnJour.setOnClickListener(new onClickListenerbtnJour());
         btnAjCours.setOnClickListener(new onClickListenerbtnAjC());
+        btnAbs.setOnClickListener(new onClickListenerbtnAbS());
+        btnAjtExam.setOnClickListener(new onClickListenerbtnAjEXAM());
+        btnExam.setOnClickListener(new onClickListenerbtnEXAM());
 
     }
 
     public class onClickListenerbtnJour implements View.OnClickListener {
         @Override
-        public void onClick(View v){
+        public void onClick(View v) {
             startActivity(intentEDT);
         }
     }
+
     public class onClickListenerbtnAjC implements View.OnClickListener {
         @Override
-        public void onClick(View v){
+        public void onClick(View v) {
             startActivity(intentAjtCours);
         }
     }
 
+   public class onClickListenerbtnAbS implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            startActivity(intentAjtAbs);
+        }
+    }
+    public class onClickListenerbtnAjEXAM implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            startActivity(intentAjtExam);
+        }
+    }
+    public class onClickListenerbtnEXAM implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            startActivity(intentExam);
+        }
+    }
 
-}
+
+
+    }
+
+
+
+
