@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -45,6 +47,7 @@ public class ActivityConnection extends AppCompatActivity {
         btnCancel = (Button)findViewById(R.id.btnCancelCo);
 
         btnValidaton.setOnClickListener(new onClickListenerBtnValidation());
+        btnCancel.setOnClickListener(new onClickListenerBtnCancel());
 
         edtTxtPseudo = (EditText)findViewById(R.id.edTxtPseudo);
         edtTxtPWD = (EditText)findViewById(R.id.edTxtPwd);
@@ -78,23 +81,6 @@ public class ActivityConnection extends AppCompatActivity {
         dbCours.close();
 
 
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                Toast.makeText(getApplicationContext(),"Back button clicked", Toast.LENGTH_SHORT).show();
-                break;
-        }
-        return true;
-    }
-
-    @Override
-    public void onBackPressed() {
-        Toast.makeText(getApplicationContext(),"Vous allez quitter l'application !", Toast.LENGTH_SHORT).show();
-        Log.i("onBackPressed","Back pressed");
-        super.onBackPressed();
     }
 
     @Override
@@ -154,6 +140,17 @@ public class ActivityConnection extends AppCompatActivity {
             }
             dbUsers.close();
 
+        }
+    }
+    public class onClickListenerBtnCancel implements View.OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+            edtTxtPseudo = (EditText)findViewById(R.id.edTxtPseudo);
+            edtTxtPWD = (EditText)findViewById(R.id.edTxtPwd);
+
+            edtTxtPseudo.setText("");
+            edtTxtPWD.setText("");
         }
     }
 

@@ -36,5 +36,6 @@
     <string name="StrDeco">Déconnexion</string>
     <string name="StrOui">Oui</string>
     <string name="StrNon">Non</string>
+    <string name="menu_settings">Settings</string>
 
 </resources>

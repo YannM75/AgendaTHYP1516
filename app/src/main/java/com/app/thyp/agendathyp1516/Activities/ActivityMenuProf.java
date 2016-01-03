@@ -7,11 +7,15 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 
+import com.app.thyp.agendathyp1516.ActivityConnection;
 import com.app.thyp.agendathyp1516.R;
 
 /**
@@ -33,7 +37,7 @@ public class ActivityMenuProf extends AppCompatActivity {
     Button btnJour;
     Button btnAffAbs;
 
-
+    Intent intentCo;
 
 
     @Override
@@ -41,6 +45,8 @@ public class ActivityMenuProf extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_menu_2);
 
+
+        intentCo = new Intent(this, ActivityConnection.class);
 
         intentAjtCours = new Intent(this, GestionEdt.class);
         intentAjtAbs = new Intent(this, ABSENCES.class);
@@ -77,6 +83,50 @@ public class ActivityMenuProf extends AppCompatActivity {
                 .setCancelable(false)
                 .setPositiveButton(R.string.StrOui,new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int id) {
+                        finish();
+                    }
+                })
+                .setNegativeButton(R.string.StrNon, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        alertDialog.show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        Log.i("onCreateOptionsMenu", "Start");
+        MenuInflater mif = new MenuInflater(this);
+        mif.inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_settings:
+                onClickSettings();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void onClickSettings(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+
+        alertDialogBuilder.setTitle(R.string.StrDeco);
+
+        alertDialogBuilder
+                .setMessage("Voulez-vous vous déconnecter ?")
+                .setCancelable(false)
+                .setPositiveButton(R.string.StrOui,new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        startActivity(intentCo);
                         finish();
                     }
                 })
