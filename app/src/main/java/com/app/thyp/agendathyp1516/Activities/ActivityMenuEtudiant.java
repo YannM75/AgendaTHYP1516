@@ -33,7 +33,7 @@ public class ActivityMenuEtudiant extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Log.i("onBackPressed", "Back pressed");
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getApplicationContext());
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
         alertDialogBuilder.setTitle(R.string.StrDeco);
 
@@ -51,10 +51,8 @@ public class ActivityMenuEtudiant extends AppCompatActivity {
                     }
                 });
 
-        // create alert dialog
         AlertDialog alertDialog = alertDialogBuilder.create();
 
-        // show it
         alertDialog.show();
     }
 
