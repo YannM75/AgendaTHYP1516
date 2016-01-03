@@ -14,7 +14,8 @@
         android:layout_marginTop="51dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -25,8 +26,7 @@
         android:layout_toRightOf="@+id/textExam"
         android:layout_toEndOf="@+id/textExam"
         android:layout_marginLeft="25dp"
-        android:layout_marginStart="25dp"
-        android:textColor="#c20000" />
+        android:layout_marginStart="25dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,7 +36,8 @@
         android:layout_below="@+id/textExam"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="26dp" />
+        android:layout_marginTop="26dp"
+        android:textStyle="italic" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -45,6 +46,7 @@
         android:id="@+id/textDateData"
         android:layout_alignTop="@+id/textHeureData"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textStyle="italic" />
 
 </RelativeLayout>

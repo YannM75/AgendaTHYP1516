@@ -25,4 +25,15 @@
         android:textColor="#a20000"
         android:width="300dp"
         android:height="70dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Liste des Profs Absents :"
+        android:id="@+id/textAfficheAbs"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#b50000"
+        android:textStyle="bold" />
 </RelativeLayout>

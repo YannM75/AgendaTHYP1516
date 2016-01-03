@@ -6,16 +6,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.app.thyp.agendathyp1516.R;
 
 public class ActivityMenuEtudiant extends AppCompatActivity {
     Intent intent;
+    Intent IntentAbs;
+    Intent intentExam;
+
     Button btnJour;
+    Button btnAbs;
+    Button btnExam;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,10 +27,16 @@ public class ActivityMenuEtudiant extends AppCompatActivity {
 
 
         intent = new Intent(this, EDTDAY.class);
+        IntentAbs = new Intent(this, AfficheAbsences.class);
+        intentExam  = new Intent(this, AfficheExam.class);
 
         btnJour = (Button) findViewById(R.id.btnJour);
+        btnAbs = (Button) findViewById(R.id.btnAbs);
+        btnExam = (Button) findViewById(R.id.btnExam);
 
         btnJour.setOnClickListener(new onClickListenerbtnJour());
+        btnAbs.setOnClickListener(new onClickListenerbtnAffAbs());
+        btnExam.setOnClickListener(new onClickListenerbtnEXAM());
 
     }
 
@@ -62,6 +72,18 @@ public class ActivityMenuEtudiant extends AppCompatActivity {
         public void onClick(View v){
                 startActivity(intent);
             }
+    }
+    public class onClickListenerbtnAffAbs implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            startActivity(IntentAbs);
+        }
+    }
+    public class onClickListenerbtnEXAM implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            startActivity(intentExam);
+        }
     }
 
 
