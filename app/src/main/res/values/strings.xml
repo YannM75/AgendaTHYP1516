@@ -32,4 +32,8 @@
     <string name="BtnAjouter">Ajouter</string>
     <string name="BtnAnnuler">Annuler</string>
 
+    <string name="StrDeco">Déconnexion</string>
+    <string name="StrOui">Oui</string>
+    <string name="StrNon">Non</string>
+
 </resources>

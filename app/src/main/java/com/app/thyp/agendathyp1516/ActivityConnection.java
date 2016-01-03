@@ -97,6 +97,16 @@ public class ActivityConnection extends AppCompatActivity {
         super.onBackPressed();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        edtTxtPseudo = (EditText)findViewById(R.id.edTxtPseudo);
+        edtTxtPWD = (EditText)findViewById(R.id.edTxtPwd);
+
+        edtTxtPseudo.setText("");
+        edtTxtPWD.setText("");
+    }
+
     public class onClickListenerBtnValidation implements View.OnClickListener {
         @Override
         public void onClick(View v){
@@ -127,7 +137,9 @@ public class ActivityConnection extends AppCompatActivity {
                             if(String.valueOf(u.getGroupe()) == "1"){
                                 startActivity(intentEtudiant);
                             }
-                            else{startActivity(intentProf);}
+                            else{
+                                startActivity(intentProf);
+                            }
 
                         }
                         else{
