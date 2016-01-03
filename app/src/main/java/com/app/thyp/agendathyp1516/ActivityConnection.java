@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -78,6 +80,23 @@ public class ActivityConnection extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Toast.makeText(getApplicationContext(),"Back button clicked", Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(),"Vous allez quitter l'application !", Toast.LENGTH_SHORT).show();
+        Log.i("onBackPressed","Back pressed");
+        super.onBackPressed();
+    }
+
     public class onClickListenerBtnValidation implements View.OnClickListener {
         @Override
         public void onClick(View v){
@@ -125,4 +144,5 @@ public class ActivityConnection extends AppCompatActivity {
 
         }
     }
+
 }
