@@ -10,6 +10,8 @@ import com.app.thyp.agendathyp1516.Dictionary;
 import com.app.thyp.agendathyp1516.bean.Abs;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.app.thyp.agendathyp1516.bdd.MySQLiteAgenda.TABLE_ABSENCES;
 
@@ -54,7 +56,7 @@ public class AbsDataSource {
     public Abs getAbsByNameDate(String nom, String Date){
         try{
             Cursor c = database.rawQuery("SELECT * FROM " + MySQLiteAgenda.TABLE_ABSENCES + " WHERE " + MySQLiteAgenda.CL_NAME_PROF + "=?" + " AND " + MySQLiteAgenda.CL_DATE_ABSENCE + "=?", new String[]{nom, Date});
-            return cursorToUser(c);
+            return cursorToAbsVerif(c);
         }catch(Exception e){
             Log.e("Error getUserByRawQuery", e.toString());
             return null;
@@ -72,17 +74,43 @@ public class AbsDataSource {
     }
 
 
+    public List<Abs> getAbs(String date) {
+        List<Abs> ABS = new ArrayList<Abs>();
+
+        String[] where_arg = {date};
+        Cursor cursor = database.query(MySQLiteAgenda.TABLE_ABSENCES,
+                allColumns, MySQLiteAgenda.CL_DATE_ABSENCE+"=?", where_arg , null, null, null);
+
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            Abs mycours = cursorToUser(cursor);
+            ABS.add(mycours);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return ABS;
+    }
+
     private Abs cursorToUser(Cursor cursor) {
+
+        Abs myAbs = null;
+
+        myAbs = new Abs(cursor.getString(1), cursor.getString(2), cursor.getString(3));
+
+        return myAbs;
+    }
+
+    private Abs cursorToAbsVerif(Cursor cursor) {
 
         if (cursor.getCount() == 0) return null;
 
         cursor.moveToFirst();
 
-        Abs myclass = null;
+        Abs myAbs = null;
 
-        myclass = new Abs(cursor.getString(1), cursor.getString(2), cursor.getString(3));
+        myAbs = new Abs(cursor.getString(1), cursor.getString(2), cursor.getString(3));
 
-        return myclass;
+        return myAbs;
     }
 
 }

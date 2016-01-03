@@ -11,8 +11,8 @@
         android:id="@+id/android:list"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:divider="#b5b5b5"
-        android:dividerHeight="3dp"
+        android:divider="#FFF"
+        android:dividerHeight="5dp"
         />
 
     <TextView

@@ -8,6 +8,7 @@
     <string name="title_activity_edt_week">EdtWeek</string>
     <string name="title_activity_gestion_edt">Gestion des cours</string>
     <string name="title_activity_gestion_absences">Gestion des absences</string>
+    <string name="title_activity_absences">Prof abscent</string>
     <string name="title_activity_gestion_examen">Gestion des examens</string>
     <string name="title_activity_select_class_room">SelectClassRoom</string>
     <string name="title_activity_select_hours">SelectHours</string>

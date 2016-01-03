@@ -97,6 +97,10 @@
             android:name=".Activities.SALLE"
             android:label="@string/title_activity_gestion_absences"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Activities.AfficheAbsences"
+            android:label="@string/title_activity_absences"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

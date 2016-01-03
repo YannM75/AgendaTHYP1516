@@ -19,12 +19,14 @@ public class ActivityMenuProf extends AppCompatActivity {
     Intent intentAjtExam;
     Intent intentEDT;
     Intent intentExam;
+    Intent IntentAbs;
 
     Button btnAjCours;
     Button btnAbs;
     Button btnAjtExam;
     Button btnExam;
     Button btnJour;
+    Button btnAffAbs;
 
 
 
@@ -40,20 +42,21 @@ public class ActivityMenuProf extends AppCompatActivity {
         intentEDT = new Intent(this, EDTDAY.class);
         intentExam = new Intent(this, AfficheExam.class);
         intentAjtExam = new Intent(this, EXAMEN.class);
-
+        IntentAbs = new Intent(this, AfficheAbsences.class);
 
         btnAjCours = (Button) findViewById(R.id.AjtCours);
         btnJour = (Button) findViewById(R.id.btnJour);
         btnAbs = (Button) findViewById(R.id.AjtAbs);
         btnAjtExam = (Button) findViewById(R.id.AjtExam);
         btnExam = (Button) findViewById(R.id.btnExam);
-
+        btnAffAbs = (Button) findViewById(R.id.btnAbs);
 
         btnJour.setOnClickListener(new onClickListenerbtnJour());
         btnAjCours.setOnClickListener(new onClickListenerbtnAjC());
         btnAbs.setOnClickListener(new onClickListenerbtnAbS());
         btnAjtExam.setOnClickListener(new onClickListenerbtnAjEXAM());
         btnExam.setOnClickListener(new onClickListenerbtnEXAM());
+        btnAffAbs.setOnClickListener(new onClickListenerbtnAffAbs());
 
     }
 
@@ -89,7 +92,12 @@ public class ActivityMenuProf extends AppCompatActivity {
             startActivity(intentExam);
         }
     }
-
+    public class onClickListenerbtnAffAbs implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            startActivity(IntentAbs);
+        }
+    }
 
 
     }
